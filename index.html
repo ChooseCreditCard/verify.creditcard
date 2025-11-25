@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Verify.Creditcard – Verification, Trust Checks & Extra Proof</title>
+  <meta name="description"
+        content="Verify.creditcard explains how card issuers verify users, devices and transactions: KYC, extra checks, step-up challenges, SCA and trust signals." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://verify.creditcard/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Verify.Creditcard – Verification & Trust for Cardholders" />
+  <meta property="og:description"
+        content="From KYC to step-up authentication – how and why issuers verify you, your devices and your payments." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://verify.creditcard/" />
+  <meta property="og:image" content="https://verify.creditcard/preview.png" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/styles.css" />
+
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-64FE63JQ3H"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config','G-64FE63JQ3H');
+  </script>
+
+  <style>
+    .brand{display:flex;align-items:center;gap:10px;font-weight:600}
+    .cc-logo{height:32px;width:32px;border-radius:999px;background:#38bdf8;display:flex;align-items:center;justify-content:center;font-size:12px;color:#020617;font-weight:800}
+    .list{margin:8px 0 0;padding-left:18px;font-size:14px;color:var(--muted)}
+    .list li{margin-bottom:4px}
+    .table-wrap{overflow-x:auto}
+  </style>
+</head>
+
+<body>
+<header class="nav">
+  <div class="brand">
+    <div class="cc-logo">CC</div>
+    <span>Verify.creditcard</span>
+  </div>
+  <nav class="links">
+    <a href="https://fin.creditcard/">Collection</a>
+    <a href="https://digitalid.creditcard/">Digital ID</a>
+    <a href="https://access.creditcard/">Access</a>
+    <a href="https://choose.creditcard/">Choose</a>
+  </nav>
+</header>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Verification for Cards & Payments</h1>
+    <p>Why issuers sometimes ask for extra proof – and how verification protects both you and the system.</p>
+    <a class="cta"
+       href="https://choose.creditcard/compare?utm_source=verify.creditcard&utm_medium=referral&utm_campaign=verify_top">
+      Compare Secure & Modern Cards
+    </a>
+  </section>
+
+  <!-- What is verification -->
+  <section class="section">
+    <h2>What does “verify” mean in card programs?</h2>
+    <p class="small">
+      Verification is any extra step the issuer takes to be sure about a person, a device or a transaction.
+      Sometimes at onboarding, sometimes when something looks risky.
+    </p>
+    <ul class="list">
+      <li>• Verifying your identity (KYC & digital ID)</li>
+      <li>• Verifying a new device or browser</li>
+      <li>• Verifying a high-risk transaction</li>
+      <li>• Verifying changes to limits, address or contact details</li>
+      <li>• Verifying card details have not been stolen</li>
+    </ul>
+  </section>
+
+  <!-- Types of verification -->
+  <section class="section">
+    <h2>Types of verification</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Identity verification</h3>
+        <p class="small">
+          ID documents, selfies, national eID or bank ID to confirm who you are.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Device verification</h3>
+        <p class="small">
+          SMS, email link, push approval or app-based checks when you log in from a new device.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Payment verification</h3>
+        <p class="small">
+          3-D Secure and Strong Customer Authentication (SCA) for higher-risk transactions.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Change verification</h3>
+        <p class="small">
+          Extra steps when changing phone number, email, address or limits.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Table: when extra checks happen -->
+  <section class="section">
+    <h2>When do issuers ask for extra verification?</h2>
+    <div class="table-wrap">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Scenario</th>
+          <th>Typical verification</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>New device login</td>
+          <td>SMS code, push approval, email link or biometric via app.</td>
+        </tr>
+        <tr>
+          <td>Unusual purchase</td>
+          <td>3-D Secure challenge or in-app confirmation.</td>
+        </tr>
+        <tr>
+          <td>Address / contact change</td>
+          <td>Re-authentication plus one-time code.</td>
+        </tr>
+        <tr>
+          <td>Limit increase</td>
+          <td>Full re-check of ID, income and risk profile.</td>
+        </tr>
+        <tr>
+          <td>Suspected fraud</td>
+          <td>Contact from issuer, card lock and full identity re-check.</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Why verification matters -->
+  <section class="section">
+    <h2>Why verification matters</h2>
+    <ul class="list">
+      <li>• Stops attackers from taking over your account</li>
+      <li>• Reduces misuse of stolen card details</li>
+      <li>• Helps issuers trust new devices and channels</li>
+      <li>• Required by regulators for certain risk levels</li>
+      <li>• Enables smoother experiences once trust is built</li>
+    </ul>
+  </section>
+
+  <!-- Good verification design -->
+  <section class="section">
+    <h2>Good vs. bad verification UX</h2>
+    <ul class="list">
+      <li>• Good: clear explanation of why verification is needed</li>
+      <li>• Good: multiple secure options (app, push, biometrics)</li>
+      <li>• Good: minimal friction for low-risk actions</li>
+      <li>• Bad: generic error messages and repeated SMS loops</li>
+      <li>• Bad: no clear way to contact support if you are blocked</li>
+    </ul>
+  </section>
+
+  <!-- Cluster links -->
+  <section class="section">
+    <h2>Identity & verification cluster</h2>
+    <p class="small">See more about digital identity and access:</p>
+    <div class="grid">
+      <a class="card"
+         href="https://digitalid.creditcard/?utm_source=verify.creditcard&utm_medium=referral">
+        <h3>DigitalID.creditcard</h3>
+        <p class="small">Digital identity, KYC and device binding.</p>
+      </a>
+      <a class="card"
+         href="https://access.creditcard/?utm_source=verify.creditcard&utm_medium=referral">
+        <h3>Access.creditcard</h3>
+        <p class="small">Authentication, activation and secure access.</p>
+      </a>
+      <a class="card"
+         href="https://intelligence.creditcard/?utm_source=verify.creditcard&utm_medium=referral">
+        <h3>Intelligence.creditcard</h3>
+        <p class="small">Risk engines that drive verification decisions.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA bottom -->
+  <section class="section">
+    <h2>Want a card that takes security seriously?</h2>
+    <p class="small">
+      Verify.creditcard explains the “why” behind extra checks.  
+      To compare real cards, perks and fees:
+    </p>
+    <a class="cta"
+       href="https://choose.creditcard/compare?utm_source=verify.creditcard&utm_medium=referral&utm_campaign=verify_bottom">
+      Compare Cards on Choose.Creditcard
+    </a>
+  </section>
+
+  <footer class="footer">
+    Part of <strong>The CreditCard Collection</strong> — by ronarn<br />
+    Contact: <a href="mailto:support@ronarn.com">support@ronarn.com</a>
+  </footer>
+
+</div>
+</body>
+</html>
