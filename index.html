@@ -4,22 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Verify.Creditcard – Card Verification & Strong Customer Authentication</title>
-  <meta name="description" content="Understand how credit-card verification works: CVV checks, 3-D Secure, Strong Customer Authentication, risk engines and what happens when a transaction is challenged or declined." />
+  <title>Verify.Creditcard – Card Verification, Token Checks & Security Explained</title>
+  <meta name="description" content="How card verification works: token checks, CVV logic, 3-D Secure, issuer risk signals, and how cards are validated in online and in-store transactions." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://verify.creditcard/" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Verify.Creditcard – Card Verification & Strong Customer Authentication Explained" />
-  <meta property="og:description" content="Learn how credit-card verification, 3-D Secure, SCA and risk-based checks work behind the scenes to approve or decline transactions." />
+  <meta property="og:title" content="Verify.Creditcard – Card Verification Explained" />
+  <meta property="og:description" content="Understand how credit cards are verified: cryptograms, token authentication, issuer checks, CVV logic and 3-D Secure flows." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://verify.creditcard/" />
   <meta property="og:image" content="https://choose.creditcard/preview.png?utm_source=verify.creditcard&utm_medium=referral&utm_campaign=og_image" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Verify.Creditcard – Card Verification & Strong Customer Authentication Explained" />
-  <meta name="twitter:description" content="Independent explanation of how card verification works online and in-store: CVV, 3-D Secure, SCA, step-up checks and fraud controls." />
+  <meta name="twitter:title" content="Verify.Creditcard – Card Verification Explained" />
+  <meta name="twitter:description" content="How card verification and security checks work behind the scenes when you tap, swipe or shop online." />
   <meta name="twitter:image" content="https://choose.creditcard/preview.png?utm_source=verify.creditcard&utm_medium=referral&utm_campaign=twitter_image" />
 
   <!-- GA4 -->
@@ -31,12 +31,13 @@
     gtag('config', 'G-64FE63JQ3H');
   </script>
 
-  <!-- Tailwind for utility classes -->
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Your shared minisite styles -->
+  <!-- Shared minisite CSS -->
   <link rel="stylesheet" href="./styles.css" />
 </head>
+
 <body class="bg-slate-950 text-slate-100">
   <header class="site-header">
     <div class="nav-inner max-w-6xl">
@@ -44,13 +45,13 @@
         <div class="cc-logo">CC</div>
         <div class="brand-text">
           <div class="brand-title">Verify.Creditcard</div>
-          <div class="brand-subtitle">Card Verification & SCA Explained</div>
+          <div class="brand-subtitle">Card Verification & Security Explained</div>
         </div>
       </div>
       <nav class="nav-links" aria-label="Page navigation">
         <a href="#overview">Overview</a>
-        <a href="#mechanics">How It Works</a>
-        <a href="#compare">Compare</a>
+        <a href="#checks">Verification Checks</a>
+        <a href="#secure">3-D Secure</a>
       </nav>
     </div>
   </header>
@@ -66,155 +67,172 @@
     <!-- Hero -->
     <section class="hero">
       <div class="hero-content">
-        <h1>How Credit-Card Verification & Strong Authentication Really Work</h1>
+        <h1>How Credit-Card Verification Really Works</h1>
         <p class="hero-lead">
-          Every card payment passes through layers of verification: CVV checks, risk scores, Strong Customer Authentication and, sometimes, extra challenges like 3-D Secure. This page explains what those steps do, why they matter, and how they affect approvals, declines and user experience.
+          When you tap, swipe or pay online, your card goes through multiple verification steps —
+          cryptograms, token checks, network authentication, CVV logic and issuer-side risk scoring.
+          This page breaks down each step in plain language.
         </p>
-        <a class="cta" href="https://choose.creditcard/?utm_source=verify.creditcard&utm_medium=referral&utm_campaign=hero_cta">
-          Compare cards with modern verification tech
+        <a class="cta" href="https://choose.creditcard/technology/?utm_source=verify.creditcard&utm_medium=referral&utm_campaign=hero_cta">
+          Visit the Technology &amp; Payments hub
         </a>
       </div>
     </section>
 
-    <!-- Content sections -->
+    <!-- Overview -->
     <section id="overview" class="section">
-      <h2>What Is Card Verification in Practice?</h2>
-      <p>Card verification is the process of confirming that a payment request is genuine and allowed. It combines simple checks — correct card number, expiry date, CVV — with deeper logic such as fraud scoring, device fingerprinting and, in many regions, Strong Customer Authentication (SCA).</p>
-      <p>Online, verification often includes 3-D Secure or similar flows, where you may be asked to enter a one-time code, confirm in your banking app or use biometrics. In-store, verification may rely on chip-and-PIN, contactless limits and risk-based approvals that sometimes request a PIN even when you tap.</p>
+      <h2>What Is Card Verification?</h2>
+      <p>
+        Card verification is the process of confirming that a payment instrument is legitimate,
+        active, and allowed to transact. It happens <strong>every time</strong> a card is used:
+        in-store, online, in apps, via wearables and through virtual cards.
+      </p>
+      <p>
+        Verification includes checking card tokens, cryptographic signatures, CVV/CVC codes,
+        expiration dates, issuer rules, fraud signals, spending limits and regulatory requirements.
+      </p>
+      <p>
+        The goal: <strong>ensure the transaction is valid without exposing your real card number unnecessarily</strong>.
+      </p>
     </section>
 
-    <section id="mechanics" class="section">
-      <h2>How a Verified Card Transaction Flows</h2>
-      <p>When you submit card details, the merchant’s gateway packages the transaction and sends it to an acquirer, which forwards it to the card network and then to your issuer. Along the way, basic validation checks that the card exists, is not blocked and passes format and CVV rules.</p>
-      <p>The issuer then runs risk and compliance checks: available balance and limits, fraud models, geolocation logic, merchant category and any regulatory rules requiring SCA. Based on this assessment, it either approves immediately, triggers a step-up challenge (such as 3-D Secure) or declines the transaction.</p>
+    <!-- Verification Checks -->
+    <section id="checks" class="section">
+      <h2>Core Verification Checks</h2>
+      <p>Across networks and issuers, several key checks occur for each transaction:</p>
+
+      <ul>
+        <li><strong>Token verification:</strong> For digital wallets and wearables, a device-specific token replaces your real card number.</li>
+        <li><strong>Cryptogram validation:</strong> A single-use cryptographic code proves the transaction came from an authorized device.</li>
+        <li><strong>CVV/CVC check:</strong> Ensures the card details match what the issuer expects (typically for online or manual entry).</li>
+        <li><strong>Expiration & status:</strong> The issuer confirms the card is active, not frozen, expired or blocked.</li>
+        <li><strong>Velocity rules:</strong> Too many attempts in a short period may trigger declines.</li>
+        <li><strong>Risk scoring:</strong> Issuers use machine-learning models to check spending patterns, location, device, IP address and merchant type.</li>
+      </ul>
+
+      <p>
+        These steps happen in milliseconds, but they are essential for preventing fraud and ensuring
+        the transaction matches your typical behaviour.
+      </p>
     </section>
 
+    <!-- 3D Secure -->
+    <section id="secure" class="section">
+      <h2>How 3-D Secure (3DS) Works</h2>
+      <p>
+        3-D Secure is an additional verification layer for many online transactions. Depending on your issuer,
+        it may use:
+      </p>
+
+      <ul>
+        <li><strong>One-time passwords (OTP):</strong> Codes sent by SMS or app.</li>
+        <li><strong>Bank app approval:</strong> “Tap to confirm” inside the banking app.</li>
+        <li><strong>Biometrics:</strong> Face ID or fingerprint confirmation.</li>
+        <li><strong>Frictionless 3DS:</strong> Risk-based approval with no user interaction.</li>
+      </ul>
+
+      <p>
+        3DS shifts liability from merchants to issuers and adds a second authentication factor
+        when risk appears higher.
+      </p>
+    </section>
+
+    <!-- Comparison -->
     <section class="section">
-      <h2>CVV, 3-D Secure & Strong Customer Authentication</h2>
-      <p>CVV is a basic verification factor proving that the person entering card details has physical or authorized access to the card. It helps against some forms of data theft but does not prevent all fraud, especially if CVVs have been leaked.</p>
-      <p>Strong Customer Authentication goes further by requiring at least two independent factors — for example, something you know (PIN), something you have (phone or card), and something you are (biometric). 3-D Secure is a common way to implement SCA online, using one-time codes, app confirmations or biometrics to verify the payer before the issuer approves.</p>
-    </section>
-
-    <section class="section">
-      <h2>Risk Engines, False Positives & Friction</h2>
-      <p>Issuers and payment providers run risk engines that score each transaction in real time. They factor in transaction size, merchant history, device signals, past behavior and known fraud patterns. Low-risk payments may be approved silently; higher-risk ones are challenged or declined.</p>
-      <p>Well-tuned systems balance security and convenience. Overly aggressive rules can create false positives — legitimate payments declined or challenged too often — while lax rules increase fraud exposure. Many modern cards invest in better machine learning to reduce friction without weakening protection.</p>
-    </section>
-
-    <section class="section">
-      <h2>Verification Failures, Declines & What You Can Do</h2>
-      <p>When verification fails, you may see a generic “declined” message, time out during 3-D Secure, or be asked to try another card. Causes range from incorrect details and expired cards to device changes, travel patterns or fraud flags at the issuer.</p>
-      <p>If legitimate payments are repeatedly blocked, it can help to update your contact details with the bank, enable app-based approvals, notify your issuer before travelling or request a replacement card if compromise is suspected. Some issuers also let you fine-tune verification settings inside their app.</p>
-    </section>
-
-    <!-- Comparison block -->
-    <section id="compare" class="section">
-      <h2>Compare Verification & Authentication Features Across Cards</h2>
+      <h2>Where Verification Matters Most</h2>
       <div class="table-wrap">
         <table class="table">
           <thead>
             <tr>
-              <th>Feature</th>
-              <th>What to Look For</th>
+              <th>Scenario</th>
+              <th>Verification Focus</th>
               <th>Why It Matters</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Authentication Methods</td>
-              <td>Support for app approvals, biometrics, SMS codes, 3-D Secure versions</td>
-              <td>Defines how secure and user-friendly your verification experience is.</td>
+              <td>Contactless / tap</td>
+              <td>Token, cryptogram, device authentication</td>
+              <td>Fast, low-friction payments with invisible checks.</td>
             </tr>
             <tr>
-              <td>Risk-Based Decisions</td>
-              <td>Smart use of step-up challenges instead of constant friction</td>
-              <td>Reduces unnecessary declines while still blocking suspicious activity.</td>
+              <td>Online checkout</td>
+              <td>CVV, AVS, 3-D Secure, IP/device signals</td>
+              <td>Card-not-present fraud is higher, so checks tighten.</td>
             </tr>
             <tr>
-              <td>Device &amp; Wallet Integration</td>
-              <td>Compatibility with major wallets and secure device-based tokens</td>
-              <td>Enables low-friction payments protected by phone or watch biometrics.</td>
+              <td>Wearables</td>
+              <td>Device-specific token + wrist-based authentication</td>
+              <td>Removes need for physical card but requires secure tokenization.</td>
             </tr>
             <tr>
-              <td>Controls &amp; Alerts</td>
-              <td>Real-time notifications, instant freeze, location or merchant controls</td>
-              <td>Gives you direct oversight of verification outcomes and card usage.</td>
-            </tr>
-            <tr>
-              <td>Dispute &amp; Support Flows</td>
-              <td>Clear processes for handling suspected fraud or repeated declines</td>
-              <td>Helps you resolve verification problems quickly when they occur.</td>
+              <td>Virtual cards</td>
+              <td>Disposable tokens, merchant-locked numbers</td>
+              <td>Greatly reduces ability to reuse stolen card details.</td>
             </tr>
           </tbody>
         </table>
       </div>
-      <p class="small">
-        For live product-by-product comparisons, visit
-        <a href="https://choose.creditcard/?utm_source=verify.creditcard&utm_medium=referral&utm_campaign=comparison_section">
-          Choose.Creditcard
-        </a>.
-      </p>
     </section>
 
     <!-- Cluster links -->
     <section class="section">
-      <h2>Explore Related Card Technology Topics</h2>
+      <h2>Explore Related Payment-Security Topics</h2>
       <div class="cluster-grid">
-        <a class="cluster-card" href="https://digitalpay.creditcard/?utm_source=verify.creditcard&utm_medium=referral&utm_campaign=cluster_digitalpay">
-          <h3>DigitalPay.Creditcard</h3>
-          <p>How digital wallets, virtual cards and tokenised payments work.</p>
-        </a>
-        <a class="cluster-card" href="https://tap.creditcard/?utm_source=verify.creditcard&utm_medium=referral&utm_campaign=cluster_tap">
-          <h3>Tap.Creditcard</h3>
-          <p>Contactless verification limits, offline risk rules and tap-to-pay flows.</p>
-        </a>
-        <a class="cluster-card" href="https://nfc.creditcard/?utm_source=verify.creditcard&utm_medium=referral&utm_campaign=cluster_nfc">
-          <h3>NFC.Creditcard</h3>
-          <p>The radio technology behind contactless card verification.</p>
-        </a>
         <a class="cluster-card" href="https://virtualpay.creditcard/?utm_source=verify.creditcard&utm_medium=referral&utm_campaign=cluster_virtualpay">
           <h3>VirtualPay.Creditcard</h3>
-          <p>Verification and security for virtual-only card numbers.</p>
+          <p>Virtual card numbers for online security.</p>
+        </a>
+        <a class="cluster-card" href="https://digitalid.creditcard/?utm_source=verify.creditcard&utm_medium=referral&utm_campaign=cluster_digitalid">
+          <h3>DigitalID.Creditcard</h3>
+          <p>How identity verification ties into payments.</p>
         </a>
         <a class="cluster-card" href="https://access.creditcard/?utm_source=verify.creditcard&utm_medium=referral&utm_campaign=cluster_access">
           <h3>Access.Creditcard</h3>
-          <p>How access controls, limits and privileges tie into verification.</p>
+          <p>Device, wallet and login controls for secure access.</p>
+        </a>
+        <a class="cluster-card" href="https://tappay.creditcard/?utm_source=verify.creditcard&utm_medium=referral&utm_campaign=cluster_tappay">
+          <h3>TapPay.Creditcard</h3>
+          <p>Contactless authentication + limits explained.</p>
+        </a>
+        <a class="cluster-card" href="https://nfc.creditcard/?utm_source=verify.creditcard&utm_medium=referral&utm_campaign=cluster_nfc">
+          <h3>NFC.Creditcard</h3>
+          <p>The NFC layer behind card and device verification.</p>
         </a>
       </div>
     </section>
 
-    <!-- Collection section -->
+    <!-- Collection / Snippet -->
     <section class="section">
       <h2>Part of The CreditCard Collection</h2>
       <p class="small">
-        Verify.Creditcard is one spoke in <strong>The CreditCard Collection</strong> — a network of focused microsites operated by ronarn AS. Each site explains one part of the card ecosystem in clear, neutral language and then connects you to independent comparison tools.
+        Verify.Creditcard is one of the security-focused minisites in <strong>The CreditCard Collection</strong>.
+        It explains how card verification works at a technical level — without promoting any specific card or issuer.
       </p>
       <p class="small">
-        We do not issue cards, operate authentication systems or give personal security advice. Instead, we summarise public documentation and typical industry practices so you can better understand why verification steps appear and what they mean for you.
-      </p>
-      <p class="small">
-        Nothing on this page is financial, legal or security advice. Verification standards, SCA rules and 3-D Secure flows vary by issuer, region and regulator — always refer to your bank’s official guidance for specifics.
+        Information is based on common network and issuer patterns. Always check your own issuer’s documentation for exact processes.
       </p>
 
-      <!-- REQUIRED HUB SNIPPET: Technology hub -->
-      <div class="hub-link">
+      <div class="hub-link mt-4">
         <a href="https://choose.creditcard/technology/?utm_source=verify.creditcard&utm_medium=referral&utm_campaign=minisite_to_hub"
-           class="text-sm text-slate-600 hover:text-slate-900">
-          Learn more at the Technology hub
+           class="text-sm text-slate-400 hover:text-slate-100">
+          Learn more at the Technology &amp; Payments hub
         </a>
       </div>
     </section>
 
     <!-- Bottom CTA -->
     <section class="section">
-      <h2>Ready to Choose a Card with Strong Verification?</h2>
+      <h2>Want the Deep Dive on Payment Security?</h2>
       <p class="small">
-        Use Verify.Creditcard to understand how verification and authentication work, then visit the main comparison hub to find cards that combine modern security, low friction and the features you care about most.
+        Go to the Technology &amp; Payments hub to explore tokenization, wallets, wearables,
+        cryptograms and more — all explained in the same educational style.
       </p>
-      <a class="cta" href="https://choose.creditcard/?utm_source=verify.creditcard&utm_medium=referral&utm_campaign=bottom_cta">
-        Go to Choose.Creditcard
+      <a class="cta" href="https://choose.creditcard/technology/?utm_source=verify.creditcard&utm_medium=referral&utm_campaign=bottom_cta">
+        Explore the Technology hub
       </a>
     </section>
+
   </main>
 
   <footer class="mini-footer">
@@ -223,5 +241,6 @@
       Contact: <a href="mailto:support@cc.creditcard">support@cc.creditcard</a>
     </p>
   </footer>
+
 </body>
 </html>
